@@ -1,12 +1,19 @@
 import NodeRSA from 'node-rsa';
 
+import * as fs from 'fs';
+
+var myKey = fs.readFileSync("C:\\Users\\Acer\\Desktop\\Aws\\Buyleft\\fe test\\private_key.pem", "utf8");
+
 const key = new NodeRSA();
-key.importKey("-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1GL9OnakaY8PTi+4mgwsI7T/NQI+34mCwBd8ozBORWX1rVlg2YH6PwI6PLxOLFDQC84DhX12BQD1LS6dD5RSw3g+7gX/H3RQ4oE1/TmCHqdKyJhMniodwHNwgfiz89S87Gls9erQ0jH48BXfpxs8EShT1gUHyjkqa0tZ29CDIWkGAfP8ZGWLsehOhd2/Vr01N/wf7Ew50j3K/MlIEhG4CD2hcdjn464MnJqUrcTAq0qrGVtwDzKz7H6PJMxop6mI7kGRHB3CVfjxxWopoKTMzt+qUVymP7wonJr6HIBSEzrW7vJejeTIRO6bns8/oqL5NqUJhWc1otJkitKdJ/2jowIDAQAB-----END PUBLIC KEY-----");
+//key.importKey("-----BEGIN PUBLIC KEY-----MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA1GL9OnakaY8PTi+4mgwsI7T/NQI+34mCwBd8ozBORWX1rVlg2YH6PwI6PLxOLFDQC84DhX12BQD1LS6dD5RSw3g+7gX/H3RQ4oE1/TmCHqdKyJhMniodwHNwgfiz89S87Gls9erQ0jH48BXfpxs8EShT1gUHyjkqa0tZ29CDIWkGAfP8ZGWLsehOhd2/Vr01N/wf7Ew50j3K/MlIEhG4CD2hcdjn464MnJqUrcTAq0qrGVtwDzKz7H6PJMxop6mI7kGRHB3CVfjxxWopoKTMzt+qUVymP7wonJr6HIBSEzrW7vJejeTIRO6bns8/oqL5NqUJhWc1otJkitKdJ/2jowIDAQAB-----END PUBLIC KEY-----");
+key.importKey(myKey)
 key.importKey("-----BEGIN PRIVATE KEY-----MIIEvwIBADANBgkqhkiG9w0BAQEFAASCBKkwggSlAgEAAoIBAQDUYv06dqRpjw9OL7iaDCwjtP81Aj7fiYLAF3yjME5FZfWtWWDZgfo/Ajo8vE4sUNALzgOFfXYFAPUtLp0PlFLDeD7uBf8fdFDigTX9OYIep0rImEyeKh3Ac3CB+LPz1LzsaWz16tDSMfjwFd+nGzwRKFPWBQfKOSprS1nb0IMhaQYB8/xkZYux6E6F3b9WvTU3/B/sTDnSPcr8yUgSEbgIPaFx2OfjrgycmpStxMCrSqsZW3APMrPsfo8kzGinqYjuQZEcHcJV+PHFaimgpMzO36pRXKY/vCicmvocgFITOtbu8l6N5MhE7puezz+iovk2pQmFZzWi0mSK0p0n/aOjAgMBAAECggEBAJhKdsvCIPh0FYR54YPMcKYV9d17w7ukLbYx4TRewfEvQC/R5AlzEw61OS8t01whglzEl2/T25mQ6z0/rG1sbMAu6+jfMeXLEOipwB3Ya74xNQWLd3z+NCE4ZZc8z0Rq6iEXI4Neoefm31rARIPdmn+vDBZtuv09anZPLJra8/wytP8qn7Kswy96U2l03JyaC8lK0KnNh559Yz5XQ5uusPj7c+RjSxCgZXhKHaQ9XWRzyxxg9zuyKC9lZC9jr7WhjWxYQCuNGq2+CYCFcaUJ40ixI+K5TXsd9UVwF6Z9nOZp4C3pdImFm4c/MeqpylzF9APl6CvialOzR5whVYxjMdkCgYEA8REBvwgoZ8W2tnNmdxcwmxA2yHMtsg38AhBaGc2PjF+iFa84jP+BkjEKlTmNxv9km58rEHA4pdT1BOaW5//Evu6IAoEe2wm/iD9Yesf6+MHYR6wM1d2pjoyKI5FhzQ5y/ek2FzuGzxWgokzEvj/WI0Roly0JJ/jCrE4ZWym946UCgYEA4Yso14giHCiRISmk4kWPUB7Py8EwsiNbJR14lAH1buO03f4x8hcmahszkuyu8dxPh1y0ve01Ok1DlX5YMqp9pL5DNzGrgTA7AcxIoz7oKIH0SczF91/3rXRBpI7vwrOxrZsk1RMLDKfGVpLXke1iyFmLkq2N2B0S3eDGCiawJ6cCgYEAzqm9zX+44/3j/dZA6ae/y6/Cx2W2rwa+HSbXl3dasQTrd5uX54jEFAhnAjctDIS2Q5PY32bVqZU/2Mu2Y34ptWXYxAzd3vokcTGdMOVwiwHj4M3m0xIM4mAprQRdy+WvP25HKPOnRrFL3NfjcxZXBjUHVVMOnm3strrdkgHfAOECgYEAuHg7JV2AmItNeFQ5OaAvARbSWhJeo7RrPcYG8vdPKC0xp0fazejFUI+C9S6EP+kzWsEmSxkSKec72a+Gr5nmPbIoA6KqZXVvLZ9J4cr30vnHNf04BYYGa2XkspT94L9cGWQFEgkLRoSKohBkJESGQNuMXqF4nEPbRIItN+xAs40CgYAP6Ui9pf12eC2zep4M0/FRV8dB9gcPk/HKOH+g1bQDDJmx7cVZlwV/vKnCznRZEMCb7FoVSodyYCjINHmSysWEVytbIReNWjed5X5+8JxzPdOIBXJJxqw4t+VNangrYywSM5EhMAGfQzr97bY+H22n3YEz8ypBDsVEsQOEf7CZrg==-----END PRIVATE KEY-----")
 const publicKey = key.exportKey("pkcs8-public-pem"); //pulic key in pkcs8 pem format
-const privateKey = key.exportKey("pkcs8-private-pem"); //private key in pkcs8 pem format
+const privateKey = key.exportKey("pkcs8-private-pem"); //private key in pkcs8 pem format RSA
 
 const text = "secret key mock"
 const encryptText = key.encrypt(Buffer.from(text))
+//const encryptText = "Up1n0CmKNT3phFQvuBoSq5pQWF5n0ry86jxlYMn1cVwkuDN3tLT2I0X7fshPg5WQgEx8IjpMWc0BrD9c7CiyoYe6YP+F3BBNnHP+gyvEIBg65SGb+Cnu0GgnG3vLHI90tRlqdifdigaeAIc91nWMqLzh6nEOfnVA7y2Rs9Wspl3JckxzwBB7jd6iv2Dtk02XPGkKBMb7rxGwYpN/BivsvS6OywoL6OiBWcljZfVGU1MFHES1BFgqBZr6KPotIiI5+oSlxxL/n834yhsNfCiFItl/XgZbPNKcndxH7EpV6c+LTgu4140ZYeoNw61syA6aiim+hGnF5PLjBi7vYfUxGg=="
 const decryptText = key.decrypt(Buffer.from(encryptText, 'base64'));
 console.log(decryptText.toString());
+
